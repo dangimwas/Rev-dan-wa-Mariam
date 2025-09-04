@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import DynamicText from './DynamicText';
-import heroImage from '@/assets/hero-image.jpg';
+import heroImage from '/lovable-uploads/e8b0aeb2-1a63-480e-8189-f2e22caeb576.png';
 import ministry1 from '@/assets/ministry-1.jpg';
 import ministry2 from '@/assets/ministry-2.jpg';
 import ministry3 from '@/assets/ministry-3.jpg';
