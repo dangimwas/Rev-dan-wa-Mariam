@@ -16,30 +16,33 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen pt-20 gradient-hero">
       <div className="container mx-auto px-6 py-16">
-        {/* Hero Banner */}
-        <div className="relative mb-16">
-          <div className="relative rounded-lg overflow-hidden shadow-[var(--shadow-card)]">
-            <img 
-              src={heroImage} 
-              alt="Reverend Dan professional photo" 
-              className="w-full h-96 md:h-[500px] object-cover object-top"
-            />
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div className="text-center text-white">
-                <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                  Welcome to My Ministry
-                </h1>
-                <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-                  Spreading God's love and serving our community with faith, hope, and compassion
-                </p>
-                <Button 
-                  onClick={scrollToAbout}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
-                >
-                  Learn More About Me
-                </Button>
-              </div>
+        {/* Hero Section - Side by Side Layout */}
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+          {/* Image on Left */}
+          <div className="order-2 md:order-1">
+            <div className="relative rounded-lg overflow-hidden shadow-[var(--shadow-card)]">
+              <img 
+                src={heroImage} 
+                alt="Reverend Dan professional photo" 
+                className="w-full h-96 md:h-[500px] object-cover object-top"
+              />
             </div>
+          </div>
+          
+          {/* Content on Right */}
+          <div className="order-1 md:order-2 text-center md:text-left">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
+              Welcome to My Ministry
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-muted-foreground">
+              Spreading God's love and serving our community with faith, hope, and compassion
+            </p>
+            <Button 
+              onClick={scrollToAbout}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
+            >
+              Learn More About Me
+            </Button>
           </div>
         </div>
 
