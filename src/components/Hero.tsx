@@ -21,8 +21,8 @@ const Hero = () => {
           <div className="relative rounded-lg overflow-hidden shadow-[var(--shadow-card)]">
             <img 
               src={heroImage} 
-              alt="Reverend Dan in church sanctuary" 
-              className="w-full h-96 md:h-[500px] object-cover"
+              alt="Reverend Dan professional photo" 
+              className="w-full h-96 md:h-[500px] object-cover object-top"
             />
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
               <div className="text-center text-white">
