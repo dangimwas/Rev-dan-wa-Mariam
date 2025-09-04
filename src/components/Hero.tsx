@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button';
 import DynamicText from './DynamicText';
 import heroImage from '/lovable-uploads/e8b0aeb2-1a63-480e-8189-f2e22caeb576.png';
-import ministry1 from '@/assets/ministry-1.jpg';
-import ministry2 from '@/assets/ministry-2.jpg';
-import ministry3 from '@/assets/ministry-3.jpg';
+import ministry1 from '/lovable-uploads/fe512d65-7277-491c-954e-b7f1752adf57.png';
+import ministry2 from '/lovable-uploads/40107bb2-f83a-4aea-9cca-8ba171aa597b.png';
+import ministry3 from '/lovable-uploads/34d7548f-b0e0-460c-aae9-31b42ecedbf8.png';
 
 const Hero = () => {
   const scrollToAbout = () => {
