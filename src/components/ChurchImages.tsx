@@ -1,7 +1,7 @@
-import churchInterior from '/lovable-uploads/church-interior-new.png';
-import churchExteriorBlue from '/lovable-uploads/church-exterior-new.png';
-import churchSign from '/lovable-uploads/church-sign-new.png';
-import churchAerial from '/lovable-uploads/church-aerial-new.png';
+import churchInterior from '/lovable-uploads/151d74d1-e36a-4b24-9402-bfac5ed54c82.png';
+import churchExteriorBlue from '/lovable-uploads/df10fbdb-c889-4955-a0fb-2ad27db2927a.png';
+import churchSign from '/lovable-uploads/d29b45f8-bfdc-4b65-b120-6f3e50c8935b.png';
+import churchAerial from '/lovable-uploads/93f3aa98-5e56-4218-9d36-e1b8679a1852.png';
 
 const ChurchImages = () => {
   const churchImages = [
