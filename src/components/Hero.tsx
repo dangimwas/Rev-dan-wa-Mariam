@@ -72,7 +72,7 @@ const Hero = () => {
             <img 
               src={ministry3} 
               alt="Spiritual counseling" 
-              className="w-full h-64 object-cover object-top rounded-lg shadow-[var(--shadow-card)] gallery-image"
+              className="w-full h-64 object-cover object-center rounded-lg shadow-[var(--shadow-card)] gallery-image"
             />
             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
               <span className="text-white font-semibold">Counseling</span>

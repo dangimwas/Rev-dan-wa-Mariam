@@ -1,23 +1,29 @@
-import churchInterior from '/lovable-uploads/church-interior.png';
-import churchExteriorBlue from '/lovable-uploads/church-exterior-blue.png';
-import churchSign from '/lovable-uploads/church-sign.png';
+import churchInterior from '/lovable-uploads/church-interior-new.png';
+import churchExteriorBlue from '/lovable-uploads/church-exterior-new.png';
+import churchSign from '/lovable-uploads/church-sign-new.png';
+import churchAerial from '/lovable-uploads/church-aerial-new.png';
 
 const ChurchImages = () => {
   const churchImages = [
     {
       src: churchInterior,
-      alt: 'Church Interior with Beautiful Altar',
+      alt: 'Church Interior with Beautiful Altar and Painted Walls',
       caption: 'Our Sanctuary'
     },
     {
       src: churchExteriorBlue,
-      alt: 'Church Building Exterior',
+      alt: 'Bethsaida Victory & Hope Church Building Exterior',
       caption: 'Church Building'
     },
     {
       src: churchSign,
       alt: 'Bethsaida Victory & Hope Church Sign',
       caption: 'Welcome Sign'
+    },
+    {
+      src: churchAerial,
+      alt: 'Aerial View of Church Compound',
+      caption: 'Church Compound'
     }
   ];
 
@@ -33,7 +39,7 @@ const ChurchImages = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {churchImages.map((image, index) => (
             <div key={index} className="text-center">
               <div className="relative group overflow-hidden rounded-lg shadow-[var(--shadow-card)] mb-4">
@@ -51,6 +57,7 @@ const ChurchImages = () => {
                 {index === 0 && "Our beautiful sanctuary with hand-painted walls and sacred altar where we worship."}
                 {index === 1 && "The exterior of our beloved church building serving the community."}
                 {index === 2 && "Welcome to Bethsaida Victory & Hope Church - our spiritual home."}
+                {index === 3 && "Aerial view of our church compound and surrounding community."}
               </p>
             </div>
           ))}
