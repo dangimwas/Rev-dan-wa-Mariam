@@ -35,7 +35,7 @@ const Contact = () => {
       `Message:\n${formData.message}`
     );
     
-    const mailtoLink = `mailto:dangimwas456@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:danwamariam456@gmail.com?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
     
     toast({
@@ -73,25 +73,25 @@ const Contact = () => {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-primary" />
-                    <span className="text-foreground">dangimwas456@gmail.com</span>
+                    <span className="text-foreground">danwamariam456@gmail.com</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-primary" />
-                    <span className="text-foreground">Available for spiritual counsel</span>
+                    <span className="text-foreground">0705499200</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <MapPin className="w-5 h-5 text-primary" />
-                    <span className="text-foreground">Serving our local community</span>
+                    <span className="text-foreground">Ruiru Watalam</span>
                   </div>
                 </div>
               </div>
 
               <div className="bg-card p-6 rounded-lg border border-border">
-                <h4 className="text-lg font-semibold text-primary mb-3">Office Hours</h4>
+                <h4 className="text-lg font-semibold text-primary mb-3">Bethsaida Victory & Hope Church</h4>
                 <div className="space-y-2 text-muted-foreground">
-                  <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                  <p>Saturday: 10:00 AM - 2:00 PM</p>
-                  <p>Sunday: Available after service</p>
+                  <p className="font-semibold text-primary">Sunday Services:</p>
+                  <p>8:00 AM - 9:30 AM: English Service</p>
+                  <p>10:00 AM - 3:00 PM: Kikuyu Service</p>
                   <p className="text-sm text-primary mt-3">
                     *Emergency spiritual counsel available 24/7
                   </p>
@@ -172,7 +172,7 @@ const Contact = () => {
         {/* Footer Bottom */}
         <div className="border-t border-border mt-16 pt-8 text-center">
           <p className="text-muted-foreground">
-            © 2024 Reverend Dan. All rights reserved. | 
+            © 2024 Bethsaida Victory & Hope Church. All rights reserved. | 
             <span className="text-primary"> Spreading God's love through faithful service</span>
           </p>
         </div>

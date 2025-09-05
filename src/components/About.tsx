@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Download, ExternalLink } from 'lucide-react';
-import profilePhoto from '@/assets/profile-photo.jpg';
+import profilePhoto from '/lovable-uploads/about-photo.png';
 
 const About = () => {
   const handleViewCV = () => {

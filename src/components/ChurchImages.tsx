@@ -1,23 +1,23 @@
-import churchBuilding from '@/assets/church-building.jpg';
-import sundayFellowship from '@/assets/sunday-fellowship.jpg';
-import communityWorship from '@/assets/community-worship.jpg';
+import churchInterior from '/lovable-uploads/church-interior.png';
+import churchExteriorBlue from '/lovable-uploads/church-exterior-blue.png';
+import churchSign from '/lovable-uploads/church-sign.png';
 
 const ChurchImages = () => {
   const churchImages = [
     {
-      src: churchBuilding,
-      alt: 'Our Church Building',
-      caption: 'Our Church Building'
+      src: churchInterior,
+      alt: 'Church Interior with Beautiful Altar',
+      caption: 'Our Sanctuary'
     },
     {
-      src: sundayFellowship,
-      alt: 'Sunday Fellowship',
-      caption: 'Sunday Fellowship'
+      src: churchExteriorBlue,
+      alt: 'Church Building Exterior',
+      caption: 'Church Building'
     },
     {
-      src: communityWorship,
-      alt: 'Community Worship',
-      caption: 'Community Worship'
+      src: churchSign,
+      alt: 'Bethsaida Victory & Hope Church Sign',
+      caption: 'Welcome Sign'
     }
   ];
 
@@ -48,9 +48,9 @@ const ChurchImages = () => {
                 {image.caption}
               </h3>
               <p className="text-muted-foreground">
-                {index === 0 && "The sacred space where our community gathers for worship and prayer."}
-                {index === 1 && "Sharing meals and building relationships that strengthen our faith community."}
-                {index === 2 && "United in praise and worship, experiencing God's presence together."}
+                {index === 0 && "Our beautiful sanctuary with hand-painted walls and sacred altar where we worship."}
+                {index === 1 && "The exterior of our beloved church building serving the community."}
+                {index === 2 && "Welcome to Bethsaida Victory & Hope Church - our spiritual home."}
               </p>
             </div>
           ))}
