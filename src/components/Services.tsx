@@ -6,8 +6,12 @@ import {
   MessageCircle, 
   Sparkles 
 } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Services = () => {
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { elementRef: cardsRef, isVisible: cardsVisible } = useScrollAnimation();
+
   const services = [
     {
       icon: Church,
@@ -39,7 +43,7 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div ref={titleRef} className={`text-center mb-16 scroll-fade-in ${titleVisible ? 'animate' : ''}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">My Services</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -48,13 +52,14 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div ref={cardsRef} className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto scroll-fade-in ${cardsVisible ? 'animate' : ''}`}>
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <Card 
                 key={index} 
                 className="service-card bg-card border-border hover:border-primary/50 h-full"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <CardHeader className="text-center pb-4">
                   <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">

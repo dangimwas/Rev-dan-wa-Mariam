@@ -41,8 +41,15 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <div className="text-2xl font-bold text-primary">
-            Reverend Dan
+          <div className="flex flex-col items-center">
+            <div className="text-2xl font-bold text-primary mb-2">
+              Reverend Dan
+            </div>
+            <img 
+              src="/lovable-uploads/e28233a6-c4f7-44f0-80a5-ff4a718792c9.png" 
+              alt="Church flags representing our international ministry" 
+              className="h-8 w-auto object-contain animate-fade-in"
+            />
           </div>
           
           <div className="hidden md:flex space-x-8">

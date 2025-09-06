@@ -1,8 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { Download, ExternalLink } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import profilePhoto from '/lovable-uploads/f0840f1c-644f-40db-a5e6-046148a61fb5.png';
 
 const About = () => {
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { elementRef: imageRef, isVisible: imageVisible } = useScrollAnimation();
+  const { elementRef: contentRef, isVisible: contentVisible } = useScrollAnimation();
+
   const handleViewCV = () => {
     // This would open the CV in a new tab
     window.open('/cv.pdf', '_blank');
@@ -21,7 +26,7 @@ const About = () => {
   return (
     <section id="about" className="py-20 gradient-section">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div ref={titleRef} className={`text-center mb-16 scroll-fade-in ${titleVisible ? 'animate' : ''}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">About Me</h2>
           <div className="w-24 h-1 bg-primary mx-auto"></div>
         </div>
@@ -29,7 +34,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Profile Photo */}
-            <div className="flex justify-center">
+            <div ref={imageRef} className={`flex justify-center scroll-slide-left ${imageVisible ? 'animate' : ''}`}>
               <div className="relative inline-block">
                 <img 
                   src={profilePhoto} 
@@ -41,7 +46,7 @@ const About = () => {
             </div>
 
             {/* Content */}
-            <div className="space-y-6">
+            <div ref={contentRef} className={`space-y-6 scroll-slide-right ${contentVisible ? 'animate' : ''}`}>
               <div className="prose prose-lg text-foreground">
                 <p className="text-lg leading-relaxed">
                   I am Reverend Dan, called by God to serve His people through ministry, teaching, 
