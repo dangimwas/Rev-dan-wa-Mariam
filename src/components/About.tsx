@@ -34,7 +34,7 @@ const About = () => {
                 <img 
                   src={profilePhoto} 
                   alt="Reverend Dan professional headshot" 
-                  className="w-80 h-80 object-cover rounded-full shadow-[var(--shadow-orange)] border-4 border-primary/20"
+                  className="w-80 h-80 object-cover object-top rounded-full shadow-[var(--shadow-orange)] border-4 border-primary/20"
                 />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-t from-primary/20 to-transparent"></div>
               </div>
