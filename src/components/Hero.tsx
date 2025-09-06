@@ -47,7 +47,7 @@ const Hero = () => {
         </div>
 
         {/* Ministry Photos */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-16 place-items-center">
           <div className="relative group">
             <img 
               src={ministry1} 

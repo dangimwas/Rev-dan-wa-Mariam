@@ -29,7 +29,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Profile Photo */}
-            <div className="text-center">
+            <div className="flex justify-center">
               <div className="relative inline-block">
                 <img 
                   src={profilePhoto} 
