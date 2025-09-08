@@ -1,20 +1,20 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
-import gallery1 from '@/assets/gallery-1.jpg';
-import gallery2 from '@/assets/gallery-2.jpg';
-import ministry1 from '@/assets/ministry-1.jpg';
-import ministry2 from '@/assets/ministry-2.jpg';
-import ministry3 from '@/assets/ministry-3.jpg';
+import churchEvent from '/lovable-uploads/ddbee17c-b384-465e-8a34-0b3b12c77ba7.png';
+import churchCeremony from '/lovable-uploads/da38524a-102a-40f5-8fd2-c6730d84e1cb.png';
+import churchBaptism from '/lovable-uploads/6cc2814e-1ba8-415b-8b04-737ab8da7367.png';
+import churchService from '/lovable-uploads/6fc23f88-3dba-4eff-9a96-756f1624e9cd.png';
+import ministryEvent from '/lovable-uploads/9c2d2ab6-09b3-4b92-9918-6be86a4bc69e.png';
 
 const PhotoGallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const galleryImages = [
-    { src: gallery1, alt: 'Ministry Activities' },
-    { src: gallery2, alt: 'Special Church Events' },
-    { src: ministry1, alt: 'Congregation Worship' },
-    { src: ministry2, alt: 'Bible Study Teaching' },
-    { src: ministry3, alt: 'Spiritual Counseling' },
+    { src: churchEvent, alt: 'Church Community Event with Congregation and Clergy' },
+    { src: churchCeremony, alt: 'Religious Ceremony with Church Leaders' },
+    { src: ministryEvent, alt: 'Special Ministry Gathering and Worship' },
+    { src: churchBaptism, alt: 'Baptism Ceremony with Water Blessing' },
+    { src: churchService, alt: 'Indoor Church Service with Congregation' },
   ];
 
   const openImage = (src: string) => {
