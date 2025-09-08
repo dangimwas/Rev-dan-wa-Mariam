@@ -24,7 +24,7 @@ const Hero = () => {
               <img 
                 src={heroImage} 
                 alt="Reverend Dan professional photo" 
-                className="w-full h-96 md:h-[500px] object-cover object-top"
+                className="w-full h-96 md:h-[500px] object-cover object-bottom"
               />
             </div>
           </div>
