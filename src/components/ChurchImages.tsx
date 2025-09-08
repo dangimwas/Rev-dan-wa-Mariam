@@ -1,29 +1,29 @@
-import churchInterior from '/lovable-uploads/151d74d1-e36a-4b24-9402-bfac5ed54c82.png';
-import churchExteriorBlue from '/lovable-uploads/df10fbdb-c889-4955-a0fb-2ad27db2927a.png';
-import churchSign from '/lovable-uploads/d29b45f8-bfdc-4b65-b120-6f3e50c8935b.png';
-import churchAerial from '/lovable-uploads/93f3aa98-5e56-4218-9d36-e1b8679a1852.png';
+import churchEvent from '/lovable-uploads/ddbee17c-b384-465e-8a34-0b3b12c77ba7.png';
+import churchCeremony from '/lovable-uploads/da38524a-102a-40f5-8fd2-c6730d84e1cb.png';
+import churchBaptism from '/lovable-uploads/6cc2814e-1ba8-415b-8b04-737ab8da7367.png';
+import churchService from '/lovable-uploads/6fc23f88-3dba-4eff-9a96-756f1624e9cd.png';
 
 const ChurchImages = () => {
   const churchImages = [
     {
-      src: churchInterior,
-      alt: 'Church Interior with Beautiful Altar and Painted Walls',
-      caption: 'Our Sanctuary'
+      src: churchEvent,
+      alt: 'Church Community Event with Congregation and Clergy',
+      caption: 'Community Gathering'
     },
     {
-      src: churchExteriorBlue,
-      alt: 'Bethsaida Victory & Hope Church Building Exterior',
-      caption: 'Church Building'
+      src: churchCeremony,
+      alt: 'Religious Ceremony with Church Leaders',
+      caption: 'Sacred Ceremony'
     },
     {
-      src: churchSign,
-      alt: 'Bethsaida Victory & Hope Church Sign',
-      caption: 'Welcome Sign'
+      src: churchBaptism,
+      alt: 'Baptism Ceremony with Water Blessing',
+      caption: 'Baptism Service'
     },
     {
-      src: churchAerial,
-      alt: 'Aerial View of Church Compound',
-      caption: 'Church Compound'
+      src: churchService,
+      alt: 'Indoor Church Service with Congregation',
+      caption: 'Sunday Service'
     }
   ];
 
@@ -54,10 +54,10 @@ const ChurchImages = () => {
                 {image.caption}
               </h3>
               <p className="text-muted-foreground">
-                {index === 0 && "Our beautiful sanctuary with hand-painted walls and sacred altar where we worship."}
-                {index === 1 && "The exterior of our beloved church building serving the community."}
-                {index === 2 && "Welcome to Bethsaida Victory & Hope Church - our spiritual home."}
-                {index === 3 && "Aerial view of our church compound and surrounding community."}
+                {index === 0 && "Our vibrant community gathering where we celebrate faith and fellowship together."}
+                {index === 1 && "Sacred ceremonies and blessings led by our devoted church leaders."}
+                {index === 2 && "Holy baptism services where new believers are welcomed into our faith family."}
+                {index === 3 && "Our Sunday worship services filled with prayer, praise, and community spirit."}
               </p>
             </div>
           ))}
