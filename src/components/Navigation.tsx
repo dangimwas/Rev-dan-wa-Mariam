@@ -7,6 +7,7 @@ const Navigation = () => {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'services', label: 'Services' },
+    { id: 'experience', label: 'Experience' },
     { id: 'gallery', label: 'Photo Gallery' },
     { id: 'church', label: 'Church Images' },
     { id: 'contact', label: 'Contact' },
