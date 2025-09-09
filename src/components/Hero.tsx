@@ -1,4 +1,11 @@
 import { Button } from '@/components/ui/button';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import DynamicText from './DynamicText';
 import heroImage from '/lovable-uploads/e8b0aeb2-1a63-480e-8189-f2e22caeb576.png';
 import ministry1 from '/lovable-uploads/fe512d65-7277-491c-954e-b7f1752adf57.png';
@@ -46,8 +53,8 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Ministry Photos */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16 place-items-center">
+        {/* Ministry Photos - Grid on desktop */}
+        <div className="hidden md:grid md:grid-cols-3 gap-8 mb-16 place-items-center">
           <div className="relative group">
             <img 
               src={ministry1} 
@@ -78,6 +85,52 @@ const Hero = () => {
               <span className="text-white font-semibold">Counseling</span>
             </div>
           </div>
+        </div>
+
+        {/* Ministry Photos - Carousel on mobile */}
+        <div className="md:hidden mb-16">
+          <Carousel className="w-full max-w-sm mx-auto">
+            <CarouselContent>
+              <CarouselItem>
+                <div className="relative group">
+                  <img 
+                    src={ministry1} 
+                    alt="Congregation during worship" 
+                    className="w-full h-64 object-cover object-center rounded-lg shadow-[var(--shadow-card)] gallery-image"
+                  />
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-semibold">Worship Service</span>
+                  </div>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="relative group">
+                  <img 
+                    src={ministry2} 
+                    alt="Bible study session" 
+                    className="w-full h-64 object-cover object-center rounded-lg shadow-[var(--shadow-card)] gallery-image"
+                  />
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-semibold">Bible Study</span>
+                  </div>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="relative group">
+                  <img 
+                    src={ministry3} 
+                    alt="Spiritual counseling" 
+                    className="w-full h-64 object-cover object-center rounded-lg shadow-[var(--shadow-card)] gallery-image"
+                  />
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-semibold">Counseling</span>
+                  </div>
+                </div>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
 
         {/* Dynamic Text */}
