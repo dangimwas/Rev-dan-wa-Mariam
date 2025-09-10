@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Download, ExternalLink } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import profilePhoto from '/lovable-uploads/f0840f1c-644f-40db-a5e6-046148a61fb5.png';
+import profilePhoto from '/lovable-uploads/4c4fb950-3f57-4ce3-9944-d6af486a9cb8.png';
 
 const About = () => {
   const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation();
