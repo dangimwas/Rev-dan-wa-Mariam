@@ -1,29 +1,51 @@
 import { useState, useEffect } from 'react';
 
 const DynamicText = () => {
-  const roles = ['Reverend', 'Priest', 'Instructor', 'Counselor', 'Motivator'];
+  const roles = ['Reverend Dan', 'Priest', 'Instructor', 'Counselor', 'Motivator'];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [displayText, setDisplayText] = useState('I am Reverend Dan');
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsVisible(false);
-      
-      setTimeout(() => {
-        setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
-        setIsVisible(true);
-      }, 250);
-    }, 3000);
+    const currentRole = `I am ${roles[currentRoleIndex]}`;
+    
+    if (!isDeleting && displayText === currentRole) {
+      // Stay for 2 seconds before starting to delete
+      const timeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, 2000);
+      return () => clearTimeout(timeout);
+    }
 
-    return () => clearInterval(interval);
-  }, []);
+    if (isDeleting) {
+      if (displayText === 'I am ') {
+        // Move to next role and start typing
+        setIsDeleting(false);
+        setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+        setDisplayText('I am ');
+      } else {
+        // Delete character by character
+        const timeout = setTimeout(() => {
+          setDisplayText(displayText.slice(0, -1));
+        }, 100);
+        return () => clearTimeout(timeout);
+      }
+    } else {
+      // Type character by character
+      if (displayText !== currentRole) {
+        const timeout = setTimeout(() => {
+          setDisplayText(currentRole.slice(0, displayText.length + 1));
+        }, 150);
+        return () => clearTimeout(timeout);
+      }
+    }
+  }, [displayText, isDeleting, currentRoleIndex, roles]);
 
   return (
     <span className="text-primary font-bold">
-      <span 
-        className={`dynamic-text ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
-      >
-        {roles[currentRoleIndex]}
+      <span className="dynamic-text">
+        {displayText}
+        <span className="animate-pulse">|</span>
       </span>
     </span>
   );
