@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react';
 
 const DynamicText = () => {
   const roles = [
-    'Reverend Dan',
     'a Preacher', 
     'an Instructor', 
     'a Counselor', 
     'a Motivator'
   ];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('I am Reverend Dan');
+  const [displayText, setDisplayText] = useState('I am a Preacher');
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
