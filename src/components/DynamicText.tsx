@@ -2,17 +2,17 @@ import { useState, useEffect } from 'react';
 
 const DynamicText = () => {
   const roles = [
-    'a Preacher', 
-    'an Instructor', 
-    'a Counselor', 
-    'a Motivator'
+    'Preacher', 
+    'Instructor', 
+    'Counselor', 
+    'Motivator'
   ];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('I am a Preacher');
+  const [displayText, setDisplayText] = useState('Preacher');
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentRole = `I am ${roles[currentRoleIndex]}`;
+    const currentRole = roles[currentRoleIndex];
     
     if (!isDeleting && displayText === currentRole) {
       // Stay for 2 seconds before starting to delete
@@ -23,11 +23,11 @@ const DynamicText = () => {
     }
 
     if (isDeleting) {
-      if (displayText === 'I am ') {
+      if (displayText === '') {
         // Move to next role and start typing
         setIsDeleting(false);
         setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
-        setDisplayText('I am ');
+        setDisplayText('');
       } else {
         // Delete character by character
         const timeout = setTimeout(() => {
