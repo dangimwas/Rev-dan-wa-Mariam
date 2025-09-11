@@ -12,6 +12,11 @@ const DynamicText = () => {
   const [displayText, setDisplayText] = useState('Reverend');
   const [isDeleting, setIsDeleting] = useState(false);
 
+  const getArticle = (word: string) => {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    return vowels.includes(word.toLowerCase().charAt(0)) ? 'an' : 'a';
+  };
+
   useEffect(() => {
     const currentRole = roles[currentRoleIndex];
     
@@ -49,7 +54,7 @@ const DynamicText = () => {
 
   return (
     <span className="font-bold">
-      <span className="text-white">Hello It's Rev Dan. </span>
+      <span className="text-white">Hello It's Rev Dan and I am {getArticle(roles[currentRoleIndex])} </span>
       <span className="text-primary dynamic-text">
         {displayText}
         <span className="animate-pulse">|</span>
