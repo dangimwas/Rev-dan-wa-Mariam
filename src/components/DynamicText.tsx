@@ -48,9 +48,10 @@ const DynamicText = () => {
   }, [displayText, isDeleting, currentRoleIndex, roles]);
 
   return (
-    <span className="text-primary font-bold">
-      <span className="dynamic-text">
-        Hello It's Rev Dan. I A'm a {displayText}
+    <span className="font-bold">
+      <span className="text-white">Hello It's Rev Dan. </span>
+      <span className="text-primary dynamic-text">
+        {displayText}
         <span className="animate-pulse">|</span>
       </span>
     </span>
