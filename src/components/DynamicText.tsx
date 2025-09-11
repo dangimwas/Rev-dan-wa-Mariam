@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 
 const DynamicText = () => {
   const roles = [
+    'Reverend', 
     'Preacher', 
     'Instructor', 
     'Counselor', 
     'Motivator'
   ];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('Preacher');
+  const [displayText, setDisplayText] = useState('Reverend');
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -49,7 +50,7 @@ const DynamicText = () => {
   return (
     <span className="text-primary font-bold">
       <span className="dynamic-text">
-        {displayText}
+        Hello It's Rev Dan. I A'm a {displayText}
         <span className="animate-pulse">|</span>
       </span>
     </span>
