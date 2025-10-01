@@ -2,20 +2,15 @@ import { useState, useEffect } from 'react';
 
 const DynamicText = () => {
   const roles = [
-    'Reverend', 
-    'Preacher', 
-    'Instructor', 
-    'Counselor', 
-    'Motivator'
+    'and I am a Reverend', 
+    'and I am a Preacher', 
+    'and I am an Instructor', 
+    'and I am a Counselor', 
+    'and I am a Motivator'
   ];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('Reverend');
+  const [displayText, setDisplayText] = useState('and I am a Reverend');
   const [isDeleting, setIsDeleting] = useState(false);
-
-  const getArticle = (word: string) => {
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
-    return vowels.includes(word.toLowerCase().charAt(0)) ? 'an' : 'a';
-  };
 
   useEffect(() => {
     const currentRole = roles[currentRoleIndex];
@@ -54,7 +49,7 @@ const DynamicText = () => {
 
   return (
     <span className="font-bold">
-      <span className="text-white">Hello It's Rev Dan and I am {getArticle(roles[currentRoleIndex])} </span>
+      <span className="text-white">Hello It's Rev Dan </span>
       <span className="text-primary dynamic-text">
         {displayText}
         <span className="animate-pulse">|</span>
