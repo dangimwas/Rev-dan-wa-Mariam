@@ -13,10 +13,24 @@ const Contact = () => {
     phone: '',
     message: ''
   });
+  const [wordCount, setWordCount] = useState(0);
+  const MAX_WORDS = 100;
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    
+    if (name === 'message') {
+      const words = value.trim().split(/\s+/).filter(word => word.length > 0);
+      const currentWordCount = value.trim() === '' ? 0 : words.length;
+      
+      if (currentWordCount > MAX_WORDS) {
+        return; // Don't update if exceeds limit
+      }
+      
+      setWordCount(currentWordCount);
+    }
+    
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -144,7 +158,12 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="message" className="text-foreground">Message *</Label>
+                  <div className="flex items-center justify-between mb-1">
+                    <Label htmlFor="message" className="text-foreground">Message *</Label>
+                    <span className={`text-sm ${wordCount > MAX_WORDS * 0.9 ? 'text-destructive' : 'text-muted-foreground'}`}>
+                      {wordCount}/{MAX_WORDS} words
+                    </span>
+                  </div>
                   <Textarea
                     id="message"
                     name="message"
