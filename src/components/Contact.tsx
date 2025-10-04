@@ -35,7 +35,7 @@ const Contact = () => {
       `Message:\n${formData.message}`
     );
     
-    const mailtoLink = `mailto:danwamariam456@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:ngugidang@gmail.com?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
     
     toast({
@@ -73,7 +73,7 @@ const Contact = () => {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-primary" />
-                    <span className="text-foreground">danwamariam456@gmail.com</span>
+                    <span className="text-foreground">ngugidang@gmail.com</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-primary" />
