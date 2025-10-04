@@ -9,8 +9,13 @@ const About = () => {
   const { elementRef: contentRef, isVisible: contentVisible } = useScrollAnimation();
 
   const handleViewCV = () => {
-    // This would open the CV in a new tab
-    window.open('/cv.docx', '_blank');
+    // Download the CV (browsers can't display .docx files)
+    const link = document.createElement('a');
+    link.href = '/cv.docx';
+    link.download = 'Reverend_Dan_CV.docx';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleDownloadCV = () => {
