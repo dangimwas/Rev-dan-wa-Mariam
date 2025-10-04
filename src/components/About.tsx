@@ -10,14 +10,14 @@ const About = () => {
 
   const handleViewCV = () => {
     // This would open the CV in a new tab
-    window.open('/cv.pdf', '_blank');
+    window.open('/cv.docx', '_blank');
   };
 
   const handleDownloadCV = () => {
     // This would trigger the download
     const link = document.createElement('a');
-    link.href = '/cv.pdf';
-    link.download = 'Reverend_Dan_CV.pdf';
+    link.href = '/cv.docx';
+    link.download = 'Reverend_Dan_CV.docx';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
