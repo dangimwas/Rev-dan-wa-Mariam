@@ -58,8 +58,8 @@ const Contact = () => {
       if (error) throw error;
 
       toast({
-        title: "Message sent!",
-        description: "Thank you for your message. We'll get back to you soon.",
+        title: "Message sent to Reverend Dan",
+        description: "Your message has been delivered successfully.",
       });
       
       setFormData({
@@ -72,8 +72,8 @@ const Contact = () => {
     } catch (error: any) {
       console.error("Error sending email:", error);
       toast({
-        title: "Error",
-        description: error?.message || "Failed to send message. Please try again.",
+        title: "Message not sent",
+        description: error?.message || "There was a problem sending your message. Please try again.",
         variant: "destructive",
       });
     }
