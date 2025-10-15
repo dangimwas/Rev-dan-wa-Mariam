@@ -41,9 +41,10 @@ const Contact = () => {
     e.preventDefault();
     
     try {
+      console.log("Submitting contact form", formData);
       const { supabase } = await import("@/integrations/supabase/client");
       
-      const { error } = await supabase.functions.invoke('send-contact-email', {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: {
           name: formData.name,
           email: formData.email,
@@ -51,6 +52,8 @@ const Contact = () => {
           message: formData.message,
         },
       });
+
+      console.log("send-contact-email response", { data, error });
 
       if (error) throw error;
 
@@ -66,11 +69,11 @@ const Contact = () => {
         message: ''
       });
       setWordCount(0);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error sending email:", error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: error?.message || "Failed to send message. Please try again.",
         variant: "destructive",
       });
     }
