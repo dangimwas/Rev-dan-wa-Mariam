@@ -13,9 +13,39 @@ const Contact = () => {
     phone: '',
     message: ''
   });
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    message: false
+  });
   const [wordCount, setWordCount] = useState(0);
   const MAX_WORDS = 100;
   const { toast } = useToast();
+
+  const validateField = (name: string, value: string) => {
+    switch (name) {
+      case 'name':
+        if (!value.trim()) return 'Name is required';
+        if (value.trim().length < 2) return 'Name must be at least 2 characters';
+        return '';
+      case 'email':
+        if (!value.trim()) return 'Email is required';
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) return 'Please enter a valid email address';
+        return '';
+      case 'message':
+        if (!value.trim()) return 'Message is required';
+        if (value.trim().length < 10) return 'Message must be at least 10 characters';
+        return '';
+      default:
+        return '';
+    }
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -35,10 +65,59 @@ const Contact = () => {
       ...prev,
       [name]: value
     }));
+
+    // Clear error when user starts typing
+    if (touched[name as keyof typeof touched]) {
+      const error = validateField(name, value);
+      setErrors(prev => ({
+        ...prev,
+        [name]: error
+      }));
+    }
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setTouched(prev => ({
+      ...prev,
+      [name]: true
+    }));
+    const error = validateField(name, value);
+    setErrors(prev => ({
+      ...prev,
+      [name]: error
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate all fields
+    const nameError = validateField('name', formData.name);
+    const emailError = validateField('email', formData.email);
+    const messageError = validateField('message', formData.message);
+
+    setErrors({
+      name: nameError,
+      email: emailError,
+      message: messageError
+    });
+
+    setTouched({
+      name: true,
+      email: true,
+      message: true
+    });
+
+    // Stop if there are errors
+    if (nameError || emailError || messageError) {
+      toast({
+        title: "Validation Error",
+        description: "Please fix the errors in the form before submitting.",
+        variant: "destructive",
+      });
+      return;
+    }
     
     try {
       console.log("Submitting contact form", formData);
@@ -67,6 +146,16 @@ const Contact = () => {
         email: '',
         phone: '',
         message: ''
+      });
+      setErrors({
+        name: '',
+        email: '',
+        message: ''
+      });
+      setTouched({
+        name: false,
+        email: false,
+        message: false
       });
       setWordCount(0);
     } catch (error: any) {
@@ -137,10 +226,18 @@ const Contact = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
+                      onBlur={handleBlur}
                       required
-                      className="mt-1 bg-input border-border text-foreground"
+                      className={`mt-1 bg-input text-foreground ${
+                        touched.name && errors.name 
+                          ? 'border-destructive focus-visible:ring-destructive' 
+                          : 'border-border'
+                      }`}
                       placeholder="Your full name"
                     />
+                    {touched.name && errors.name && (
+                      <p className="text-sm text-destructive mt-1">{errors.name}</p>
+                    )}
                   </div>
                   <div>
                     <Label htmlFor="email" className="text-foreground">Email *</Label>
@@ -150,10 +247,18 @@ const Contact = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleInputChange}
+                      onBlur={handleBlur}
                       required
-                      className="mt-1 bg-input border-border text-foreground"
+                      className={`mt-1 bg-input text-foreground ${
+                        touched.email && errors.email 
+                          ? 'border-destructive focus-visible:ring-destructive' 
+                          : 'border-border'
+                      }`}
                       placeholder="your.email@example.com"
                     />
+                    {touched.email && errors.email && (
+                      <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                    )}
                   </div>
                 </div>
 
@@ -182,11 +287,19 @@ const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
+                    onBlur={handleBlur}
                     required
                     rows={5}
-                    className="mt-1 bg-input border-border text-foreground resize-none"
+                    className={`mt-1 bg-input text-foreground resize-none ${
+                      touched.message && errors.message 
+                        ? 'border-destructive focus-visible:ring-destructive' 
+                        : 'border-border'
+                    }`}
                     placeholder="How can I help you on your spiritual journey?"
                   />
+                  {touched.message && errors.message && (
+                    <p className="text-sm text-destructive mt-1">{errors.message}</p>
+                  )}
                 </div>
 
                 <Button 
