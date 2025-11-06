@@ -4,7 +4,14 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,6 +31,7 @@ const Contact = () => {
     message: false
   });
   const [wordCount, setWordCount] = useState(0);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const MAX_WORDS = 100;
   const { toast } = useToast();
 
@@ -136,10 +144,7 @@ const Contact = () => {
 
       if (error) throw error;
 
-      toast({
-        title: "Message sent to Reverend Dan",
-        description: "Your message has been delivered successfully.",
-      });
+      setShowSuccessModal(true);
       
       setFormData({
         name: '',
@@ -169,8 +174,30 @@ const Contact = () => {
   };
 
   return (
-    <footer id="contact" className="py-20 gradient-section border-t border-border">
-      <div className="container mx-auto px-6">
+    <>
+      <Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 animate-scale-in">
+              <CheckCircle2 className="h-10 w-10 text-primary animate-fade-in" />
+            </div>
+            <DialogTitle className="text-center text-2xl">Message Sent Successfully!</DialogTitle>
+            <DialogDescription className="text-center pt-2">
+              Thank you for reaching out. Your message has been delivered to Reverend Dan, 
+              and you can expect a response within 24-48 hours.
+            </DialogDescription>
+          </DialogHeader>
+          <Button 
+            onClick={() => setShowSuccessModal(false)}
+            className="w-full mt-4"
+          >
+            Close
+          </Button>
+        </DialogContent>
+      </Dialog>
+
+      <footer id="contact" className="py-20 gradient-section border-t border-border">
+        <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Contact Me</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
@@ -322,7 +349,8 @@ const Contact = () => {
           </p>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 
