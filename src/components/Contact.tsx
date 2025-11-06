@@ -117,8 +117,13 @@ const Contact = () => {
       message: true
     });
 
-    // Stop if there are errors
+    // Stop if there are errors and scroll to first invalid field
     if (nameError || emailError || messageError) {
+      // Determine first invalid field
+      const firstErrorField = nameError ? 'name' : emailError ? 'email' : 'message';
+      const element = document.getElementById(firstErrorField);
+      element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
       toast({
         title: "Validation Error",
         description: "Please fix the errors in the form before submitting.",
@@ -171,6 +176,16 @@ const Contact = () => {
         variant: "destructive",
       });
     }
+  };
+
+  // Check if form is valid
+  const isFormValid = () => {
+    return !validateField('name', formData.name) &&
+           !validateField('email', formData.email) &&
+           !validateField('message', formData.message) &&
+           formData.name.trim() !== '' &&
+           formData.email.trim() !== '' &&
+           formData.message.trim() !== '';
   };
 
   return (
@@ -246,47 +261,47 @@ const Contact = () => {
             <div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="name" className="text-foreground">Name *</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      onBlur={handleBlur}
-                      required
-                      className={`mt-1 bg-input text-foreground ${
-                        touched.name && errors.name 
-                          ? 'border-destructive focus-visible:ring-destructive' 
-                          : 'border-border'
-                      }`}
-                      placeholder="Your full name"
-                    />
-                    {touched.name && errors.name && (
-                      <p className="text-sm text-destructive mt-1">{errors.name}</p>
-                    )}
-                  </div>
-                  <div>
-                    <Label htmlFor="email" className="text-foreground">Email *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      onBlur={handleBlur}
-                      required
-                      className={`mt-1 bg-input text-foreground ${
-                        touched.email && errors.email 
-                          ? 'border-destructive focus-visible:ring-destructive' 
-                          : 'border-border'
-                      }`}
-                      placeholder="your.email@example.com"
-                    />
-                    {touched.email && errors.email && (
-                      <p className="text-sm text-destructive mt-1">{errors.email}</p>
-                    )}
-                  </div>
+                   <div>
+                     <Label htmlFor="name" className="text-foreground">Name *</Label>
+                     <Input
+                       id="name"
+                       name="name"
+                       value={formData.name}
+                       onChange={handleInputChange}
+                       onBlur={handleBlur}
+                       required
+                       className={`mt-1 bg-input text-foreground ${
+                         touched.name && errors.name 
+                           ? 'border-destructive focus-visible:ring-destructive' 
+                           : 'border-border'
+                       }`}
+                       placeholder="Your full name"
+                     />
+                     {touched.name && errors.name && (
+                       <p className="text-sm text-destructive mt-1" role="alert">{errors.name}</p>
+                     )}
+                   </div>
+                   <div>
+                     <Label htmlFor="email" className="text-foreground">Email *</Label>
+                     <Input
+                       id="email"
+                       name="email"
+                       type="email"
+                       value={formData.email}
+                       onChange={handleInputChange}
+                       onBlur={handleBlur}
+                       required
+                       className={`mt-1 bg-input text-foreground ${
+                         touched.email && errors.email 
+                           ? 'border-destructive focus-visible:ring-destructive' 
+                           : 'border-border'
+                       }`}
+                       placeholder="your.email@example.com"
+                     />
+                     {touched.email && errors.email && (
+                       <p className="text-sm text-destructive mt-1" role="alert">{errors.email}</p>
+                     )}
+                   </div>
                 </div>
 
                 <div>
@@ -324,18 +339,19 @@ const Contact = () => {
                     }`}
                     placeholder="How can I help you on your spiritual journey?"
                   />
-                  {touched.message && errors.message && (
-                    <p className="text-sm text-destructive mt-1">{errors.message}</p>
-                  )}
-                </div>
+                   {touched.message && errors.message && (
+                     <p className="text-sm text-destructive mt-1" role="alert">{errors.message}</p>
+                   )}
+                 </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground flex items-center justify-center gap-2"
-                >
-                  <Send className="w-4 h-4" />
-                  Send Message
-                </Button>
+                 <Button 
+                   type="submit" 
+                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground flex items-center justify-center gap-2"
+                   disabled={!isFormValid()}
+                 >
+                   <Send className="w-4 h-4" />
+                   Send Message
+                 </Button>
               </form>
             </div>
           </div>
