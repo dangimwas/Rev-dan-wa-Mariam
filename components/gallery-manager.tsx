@@ -59,12 +59,21 @@ export function GalleryManager() {
         body: formData,
       })
 
-      const data = await response.json()
-      console.log('[v0] Upload response:', { status: response.status, data })
-
+      console.log('[v0] Upload response status:', response.status)
+      
       if (!response.ok) {
-        throw new Error(data.error || 'Upload failed')
+        const text = await response.text()
+        console.log('[v0] Upload response text:', text)
+        try {
+          const data = JSON.parse(text)
+          throw new Error(data.error || `Upload failed: ${response.statusText}`)
+        } catch (e) {
+          throw new Error(`Upload failed: ${response.statusText || 'Unknown error'}`)
+        }
       }
+
+      const data = await response.json()
+      console.log('[v0] Upload successful:', data)
 
       setImages([data, ...images])
       setUploadForm({ file: null, title: '', category: 'Wedding' })
