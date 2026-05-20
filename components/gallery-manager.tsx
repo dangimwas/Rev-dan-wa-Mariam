@@ -52,23 +52,29 @@ export function GalleryManager() {
       formData.append('title', uploadForm.title)
       formData.append('category', uploadForm.category)
 
+      console.log('[v0] Starting upload with file:', uploadForm.file.name)
+
       const response = await fetch('/api/gallery/upload', {
         method: 'POST',
         body: formData,
       })
 
-      if (!response.ok) throw new Error('Upload failed')
+      const data = await response.json()
+      console.log('[v0] Upload response:', { status: response.status, data })
 
-      const newImage = await response.json()
-      setImages([newImage, ...images])
+      if (!response.ok) {
+        throw new Error(data.error || 'Upload failed')
+      }
+
+      setImages([data, ...images])
       setUploadForm({ file: null, title: '', category: 'Wedding' })
       
       // Reset file input
       const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement
       if (fileInput) fileInput.value = ''
     } catch (error) {
-      console.error('Upload error:', error)
-      alert('Failed to upload image')
+      console.error('[v0] Upload error:', error)
+      alert(`Failed to upload image: ${error instanceof Error ? error.message : 'Unknown error'}`)
     } finally {
       setUploading(false)
     }
