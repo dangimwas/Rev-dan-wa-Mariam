@@ -73,7 +73,7 @@ export function HeroSection() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary via-blue-500 to-purple-500 rounded-full animate-spin-slow blur-sm group-hover:blur-md group-hover:animate-spin-fast transition-all duration-300"></div>
                 <div className="relative bg-background rounded-full p-2 group-hover:scale-105 transition-transform duration-300">
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cfc9196dadfdefb52779bdb7ab73df48_1.jpeg-ToxMPBd4ZCh8FX0QGier1L9GpdzeLD.webp"
+                    src="/dangi-hero-portrait.webp"
                     alt="DANGI WA KINANDA - Professional Pianist"
                     width={400}
                     height={400}
