@@ -7,7 +7,7 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Dangimwas - Professional Pianist",
+  title: "DANGI WA KINANDA - Professional Pianist",
   description: "Professional pianist offering live performances, studio sessions, music teaching, and event services.",
   generator: "v0.app",
 }

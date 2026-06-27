@@ -10,7 +10,7 @@ export function AboutSection() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-balance mb-4">
-                About <span className="text-primary">Dangimwas</span>
+                About <span className="text-primary">DANGI WA KINANDA</span>
               </h2>
               <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
                 A dedicated pianist serving churches and communities across Kenya
@@ -26,7 +26,7 @@ export function AboutSection() {
                   <div className="relative p-2">
                     <img
                       src="/dangimwas-about-portrait.jpg"
-                      alt="Dangimwas - Professional Pianist"
+                      alt="DANGI WA KINANDA - Professional Pianist"
                       className="about-image w-full aspect-square object-cover object-top rounded-full"
                     />
                   </div>

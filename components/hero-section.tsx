@@ -74,7 +74,7 @@ export function HeroSection() {
                 <div className="relative bg-background rounded-full p-2 group-hover:scale-105 transition-transform duration-300">
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ef9c0f46-fe2a-4e68-bd29-e39582531a43_0_watermark%20%281%29-piFILsS9kPUhyFFkzi6bJxxKzuPcxo.jpeg"
-                    alt="Dangimwas - Professional Pianist"
+                    alt="DANGI WA KINANDA - Professional Pianist"
                     width={400}
                     height={400}
                     className="rounded-full object-cover w-full h-auto max-w-sm aspect-square group-hover:brightness-110 transition-all duration-300"
@@ -94,7 +94,7 @@ export function HeroSection() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance mb-6">
-              <span className="text-primary">Dangimwas</span>
+              <span className="text-primary">DANGI WA KINANDA</span>
               <br />
               Professional Pianist
             </h1>
