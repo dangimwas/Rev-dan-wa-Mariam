@@ -32,10 +32,26 @@ export function GalleryManager() {
       setLoading(true)
       const query = selectedCategory === 'All' ? '' : `?category=${selectedCategory}`
       const response = await fetch(`/api/gallery${query}`)
+      
+      if (!response.ok) {
+        console.error('[v0] Gallery fetch error:', response.status, response.statusText)
+        setImages([])
+        return
+      }
+
       const data = await response.json()
-      setImages(data)
+      console.log('[v0] Gallery fetch successful:', data)
+      
+      // Ensure data is an array
+      if (Array.isArray(data)) {
+        setImages(data)
+      } else {
+        console.error('[v0] Gallery data is not an array:', data)
+        setImages([])
+      }
     } catch (error) {
-      console.error('Failed to fetch images:', error)
+      console.error('[v0] Failed to fetch images:', error)
+      setImages([])
     } finally {
       setLoading(false)
     }
